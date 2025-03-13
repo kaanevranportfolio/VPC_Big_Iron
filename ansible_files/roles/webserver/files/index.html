@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Webserver</title>
+</head>
+<body>
+  <h1>Welcome to my webserver!</h1>
+  <p>This page was served from {{ ansible_hostname }}.</p>
+  <p>The webserver's private IP is {{ ansible_default_ipv4.address }}.</p>
+</body>
+</html>

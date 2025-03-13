@@ -1,0 +1,16 @@
+- name: Restart Nginx
+  block:
+    - name: Validate Nginx configuration
+      command: nginx -t
+      register: nginx_test
+      ignore_errors: yes
+
+    - name: Fail if Nginx configuration is invalid
+      fail:
+        msg: "Nginx configuration is invalid: {{ nginx_test.stderr }}"
+      when: nginx_test.rc != 0
+
+    - name: Restart Nginx service
+      service:
+        name: nginx
+        state: restarted
