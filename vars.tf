@@ -21,9 +21,12 @@ variable "instance_type" {
   default = "t2.micro"
 }
 
+
 variable "amiID" {
-  default = "ami-07d2649d67dbe8900"
+  type = map(any)
+  default = {
+    ubuntu = "ami-07d2649d67dbe8900"
+    centos = "ami-0e614a6ae5310b145"
+  }
+
 }
-
-
-

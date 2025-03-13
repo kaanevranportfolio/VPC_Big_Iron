@@ -1,5 +1,5 @@
 resource "aws_instance" "bastion-server" {
-  ami                    = var.amiID # Replace with your preferred AMI ID
+  ami                    = var.amiID["ubuntu"] # Replace with your preferred AMI ID
   instance_type          = var.instance_type
   vpc_security_group_ids = [aws_security_group.bastion_sg.id]
   subnet_id              = aws_subnet.public_subnet.id # Specify the subnet here
@@ -11,7 +11,7 @@ resource "aws_instance" "bastion-server" {
 }
 
 resource "aws_instance" "nginx-server" {
-  ami                    = var.amiID # Replace with your preferred AMI ID
+  ami                    = var.amiID["ubuntu"] # Replace with your preferred AMI ID
   instance_type          = var.instance_type
   vpc_security_group_ids = [aws_security_group.nginx_sg.id]
   subnet_id              = aws_subnet.public_subnet.id # Specify the subnet here
@@ -23,7 +23,7 @@ resource "aws_instance" "nginx-server" {
 }
 
 resource "aws_instance" "web-server" {
-  ami                    = var.amiID # Replace with your preferred AMI ID
+  ami                    = var.amiID["centos"] # Replace with your preferred AMI ID
   instance_type          = var.instance_type
   vpc_security_group_ids = [aws_security_group.bastion_sg.id]
   subnet_id              = aws_subnet.private_subnet.id # Specify the subnet here
