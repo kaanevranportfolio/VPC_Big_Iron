@@ -1,0 +1,9 @@
+# This file defines variables specific to the webserver role.
+
+# Example variables
+webserver_port: 80
+webserver_user: www-data
+webserver_root: /var/www/html
+webserver_index: index.html
+
+# Add any additional variables needed for the webserver role below.

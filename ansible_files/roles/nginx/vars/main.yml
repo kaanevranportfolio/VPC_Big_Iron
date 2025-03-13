@@ -1,0 +1,30 @@
+# NGINX Role Variables
+
+# Define the NGINX version to install
+nginx_version: "1.21.1"
+
+# Define the user and group for NGINX
+nginx_user: "nginx"
+nginx_group: "nginx"
+
+# Define the default server name
+nginx_server_name: "localhost"
+
+# Define the default port for NGINX
+nginx_port: 80
+
+# Define the path for the NGINX configuration file
+nginx_conf_path: "/etc/nginx/nginx.conf"
+
+# Define the path for the NGINX log files
+nginx_log_path: "/var/log/nginx"
+
+# Define the list of additional server blocks
+nginx_server_blocks: []  # Can be populated with additional server block configurations
+
+# Define whether to enable SSL
+nginx_enable_ssl: false
+
+# Define the path for SSL certificate and key if SSL is enabled
+nginx_ssl_cert: "/etc/ssl/certs/nginx.crt"
+nginx_ssl_key: "/etc/ssl/private/nginx.key"

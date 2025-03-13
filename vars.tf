@@ -25,8 +25,9 @@ variable "instance_type" {
 variable "amiID" {
   type = map(any)
   default = {
-    ubuntu = "ami-07d2649d67dbe8900"
-    centos = "ami-0e614a6ae5310b145"
+    ubuntu       = "ami-07d2649d67dbe8900"
+    centos       = "ami-0e614a6ae5310b145"
+    amazon_linux = "ami-01eb4eefd88522422"
   }
 
 }

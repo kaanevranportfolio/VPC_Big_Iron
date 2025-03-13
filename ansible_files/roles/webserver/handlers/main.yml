@@ -1,0 +1,11 @@
+- name: Restart web server
+  service:
+    name: httpd
+    state: restarted
+  when: webserver_restart is defined and webserver_restart | bool
+
+- name: Reload web server
+  service:
+    name: httpd
+    state: reloaded
+  when: webserver_reload is defined and webserver_reload | bool
