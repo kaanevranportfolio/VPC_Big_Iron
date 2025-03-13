@@ -28,6 +28,31 @@ The Terraform configuration in this project sets up the following AWS resources:
 ## Installation
 
 1. **Clone the repository**:
-   ```bash
-   git clone https://github.com/yourusername/your-repo-name.git
-   cd your-repo-name
+```bash
+    git clone https://github.com/yourusername/your-repo-name.git
+    cd your-repo-name
+```
+
+## Starting the Terraform Project
+
+1. **Initialize Terraform**:
+    ```bash
+    terraform init
+    ```
+
+2. **Plan the Infrastructure**:
+    ```bash
+    terraform plan
+    ```
+
+3. **Apply the Configuration**:
+    ```bash
+    terraform apply
+    ```
+
+## Destroying the Terraform Project
+
+1. **Destroy the Infrastructure**:
+    ```bash
+    terraform destroy
+    ```
