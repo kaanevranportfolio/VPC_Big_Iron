@@ -1,4 +1,5 @@
-- name: Restart Nginx
+
+- name: Validate and Restart Nginx
   block:
     - name: Validate Nginx configuration
       command: nginx -t

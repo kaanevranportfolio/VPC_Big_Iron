@@ -17,6 +17,9 @@ resource "aws_internet_gateway" "big_iron_igw" {
 
 resource "aws_eip" "nat_eip" {
 
+  tags = {
+    Name = "BigIronNATEIP"
+  }
 }
 
 

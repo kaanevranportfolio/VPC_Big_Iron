@@ -82,7 +82,7 @@ resource "aws_instance" "control-server" {
 
 
 data "template_file" "inventory_ini" {
-  template = file("./ansible_files/inventory.ini.tpl")
+  template = file("./ansible_files/inventory.yml.tpl")
 
   vars = {
     nginx_public_ip           = aws_instance.nginx-server.public_ip
@@ -100,6 +100,7 @@ data "template_file" "all_yml" {
     bastion_private_ip        = aws_instance.bastion-server.private_ip
     webserver_private_ip      = aws_instance.web-server.private_ip
     control_server_private_ip = aws_instance.control-server.private_ip
+    control_server_public_ip  = aws_instance.control-server.public_ip
   }
 }
 
@@ -112,7 +113,7 @@ resource "local_file" "ansible_inventory_ini" {
     aws_instance.web-server
   ]
   content  = data.template_file.inventory_ini.rendered
-  filename = "./ansible_files/inventory.ini"
+  filename = "./ansible_files/inventory.yml"
 }
 
 resource "local_file" "ansible_group_vars_all" {
@@ -135,7 +136,7 @@ resource "null_resource" "provision_control_server" {
   connection {
     type        = "ssh"
     user        = "ec2-user"
-    private_key = file("./keys/control_server_key") # Relative path to your private key for control server
+    private_key = file("./keys/control_server_key")
     host        = aws_instance.control-server.public_ip
   }
 
