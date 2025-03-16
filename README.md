@@ -9,7 +9,8 @@ Create a web infrastructure, where Nginx act as a load balancer directing traffi
 a private subnet and communicates to public internet through NAT Gateway. The infrastructure setup is achieved with 
 Terraform, which also creates inventory file (which references the IP addresses yet to be created)
 for **Ansible** using template. Then control server provisions the servers, using Ansible roles and templates, tasks 
-and handlers.
+and handlers. **Master** branch is the setup of Infrastructure. **Combined** branch is the provisioning servers 
+with combined action of Terraform ans Ansible.
 
 ## Project Overview
 
