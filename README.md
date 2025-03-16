@@ -2,6 +2,15 @@
 
 This project uses Terraform to provision and manage AWS infrastructure, including a Virtual Private Cloud (VPC) with public and private subnets, a bastion server, an NGINX server, and a web server.
 
+
+## Project Aim
+
+Create a web infrastructure, where Nginx act as a load balancer directing traffic to web server, which is in 
+a private subnet and communicates to public internet through NAT Gateway. The infrastructure setup is achieved with 
+Terraform, which also creates inventory file (which references the IP addresses yet to be created)
+for **Ansible** using template. Then control server provisions the servers, using Ansible roles and templates, tasks 
+and handlers.
+
 ## Project Overview
 
 The Terraform configuration in this project sets up the following AWS resources:
@@ -14,9 +23,11 @@ The Terraform configuration in this project sets up the following AWS resources:
 - **NAT Gateway**: Provides internet access for resources in the private subnet.
 - **Route Tables**: Configured for both public and private subnets to manage traffic routing.
 - **EC2 Instances**:
-  - **Bastion Server**: Acts as a gateway to access other instances in the private subnet.
-  - **NGINX Server**: Hosts an NGINX web server.
-  - **Web Server**: A general-purpose server running on CentOS.
+  - **Bastion Server**: Acts as a gateway to access other instances in the private subnet (**Ubuntu**).
+  - **NGINX Server**: Hosts an NGINX web server (**Ubuntu**).
+  - **Web Server**: A general-purpose server (**CentOS**).
+  - **Control Server**: A general-purpose server running **Ansible** (**Amazon Linux** which is based on CenOS).
+ 
 
 ## Prerequisites
 
