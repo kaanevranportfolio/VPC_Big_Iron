@@ -12,6 +12,9 @@ for **Ansible** using template. Then control server provisions the servers, usin
 and handlers. **Master** branch is the setup of Infrastructure. **Combined** branch is the provisioning servers 
 with combined action of Terraform ans Ansible.
 
+![request to the public IP of Nginx routed to web server in the private subnet](./webserver.png)
+
+
 ## Project Overview
 
 The Terraform configuration in this project sets up the following AWS resources:
